@@ -14,13 +14,13 @@ export const AppHeader = () => {
     <div>
       <div className="flex items-center justify-between px-14">
         <div className="flex items-center gap-5">
-          <div className="flex w-80 items-center justify-between rounded-full border-2 border-gray-400 px-5 py-1">
+          <div className="flex w-80 items-center justify-between rounded-full border-2 border-gray-400 px-5 py-2">
             <input
               type="text"
               placeholder="Search"
               className=" leading-tight text-gray-700 focus:outline-none"
             />
-            <div className="h-8 w-8">
+            <div className="h-6 w-6">
               <SearchIcon />
             </div>
           </div>
@@ -99,12 +99,11 @@ export const AppHeader = () => {
           <div>Mystery Box</div>
         </div>
       </div>
-      <div className="mt-2 flex items-center justify-between bg-[#22374A] py-2 pr-4 text-white">
-        <div></div>
+      <div className="relative mt-2 flex items-center justify-center bg-[#22374A] py-2 pr-4 text-white">
         <div className="flex items-center justify-center">
           Free Shipping This Week Only!
         </div>
-        <div className="h-4 w-4">
+        <div className="absolute right-7 flex h-4 w-4 justify-end">
           <CrossIcon />
         </div>
       </div>
