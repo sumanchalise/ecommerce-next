@@ -1,3 +1,4 @@
+"use client";
 import {
   BasketIcon,
   ChatBubbleIcon,
@@ -8,8 +9,10 @@ import {
 } from "@/icons";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 
 export const AppHeader = () => {
+  const [offer, setOffer] = useState(true);
   return (
     <div>
       <div className="flex items-center justify-between px-14">
@@ -32,7 +35,7 @@ export const AppHeader = () => {
           </div>
           <div>Blog</div>
         </div>
-        <Link href="/">
+        <Link href="/" className="w-72">
           <div className="relative h-24 w-44">
             <Image
               src="/assets/images/Logo.png"
@@ -59,7 +62,7 @@ export const AppHeader = () => {
           </div>
         </div>
       </div>
-      <div className="flex items-center justify-center gap-10 py-3 text-lg ">
+      <div className="mb-2 flex items-center justify-center gap-10 py-3 text-lg">
         <div className="flex items-center justify-center gap-1">
           <div>Wraps</div>
           <div className="h-1 w-3">
@@ -99,14 +102,19 @@ export const AppHeader = () => {
           <div>Mystery Box</div>
         </div>
       </div>
-      <div className="relative mt-2 flex items-center justify-center bg-[#22374A] py-2 pr-4 text-white">
-        <div className="flex items-center justify-center">
-          Free Shipping This Week Only!
+      {offer && (
+        <div className="relative flex items-center justify-center bg-[#22374A] py-2 text-white">
+          <div className="flex items-center justify-center">
+            Free Shipping This Week Only!
+          </div>
+          <div
+            className="absolute right-7 flex h-4 w-4 justify-end"
+            onClick={() => setOffer(false)}
+          >
+            <CrossIcon />
+          </div>
         </div>
-        <div className="absolute right-7 flex h-4 w-4 justify-end">
-          <CrossIcon />
-        </div>
-      </div>
+      )}
     </div>
   );
 };

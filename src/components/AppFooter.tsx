@@ -27,7 +27,7 @@ const DeliverySection = () => {
       <div className="font-Mulish text-base font-normal">
         We ship our products to most countries in the World
       </div>
-      <div className="flex items-center justify-center gap-20 pt-12 text-center font-Mulish">
+      <div className="flex flex-col items-center justify-center gap-20 px-5 pt-12 text-center font-Mulish md:flex-row">
         <div className="flex flex-col gap-2 px-3">
           <div className="flex items-center justify-center gap-5">
             <div className="h-12 w-16">
@@ -81,9 +81,9 @@ const BrandSection = () => {
       <div className="font-JosefinSans text-base font-semibold uppercase text-white">
         Our most valuable brands
       </div>
-      <div className="flex items-center justify-center gap-32 pb-10 pt-3">
+      <div className="flex items-center justify-center gap-2 pb-10 pt-3 md:gap-5 lg:gap-20 xl:gap-32">
         {brands?.map((brand, id) => (
-          <div key={id} className="relative h-20 w-24">
+          <div key={id} className="relative h-12 w-14 md:h-20 md:w-24">
             <Image
               src={brand.image}
               fill
@@ -119,8 +119,8 @@ const FooterSection = () => {
     { id: "7", title: "New", link: "#" },
   ];
   return (
-    <div className="w-full divide-y divide-gray-300 px-80">
-      <div className="grid grid-cols-3 gap-10 py-16">
+    <div className="w-full divide-y divide-gray-300 px-5 lg:px-32 2xl:px-80">
+      <div className="grid grid-cols-2 gap-10 py-16 md:grid-cols-3">
         <div>
           <div className="font-JosefinSans text-base font-semibold uppercase">
             About
@@ -153,7 +153,7 @@ const FooterSection = () => {
             ))}
           </div>
         </div>
-        <div>
+        <div className="col-span-2 md:col-span-1">
           <div className="pb-8 font-JosefinSans text-base font-semibold uppercase">
             Join the SFB Community
           </div>
@@ -172,13 +172,13 @@ const FooterSection = () => {
               <ArrowIcon />
             </div>
           </div>
-          <div className="max-w-sm bg-red-500 pl-10 pt-2 font-Mulish text-sm font-normal">
+          <div className="max-w-xs pl-10 pt-2 font-Mulish text-sm font-normal">
             We surprise you with a box that will definitely be a match for you.
           </div>
         </div>
       </div>
 
-      <div className="flex items-center justify-between py-3">
+      <div className="flex flex-col items-center justify-between py-3 md:flex-row">
         <div className="relative h-16 w-96">
           <Image
             src="/assets/images/Visa.png"
