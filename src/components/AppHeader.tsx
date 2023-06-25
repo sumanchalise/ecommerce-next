@@ -108,7 +108,7 @@ export const AppHeader = () => {
             Free Shipping This Week Only!
           </div>
           <div
-            className="absolute right-7 flex h-4 w-4 justify-end"
+            className="absolute right-7 flex h-4 w-4 cursor-pointer justify-end"
             onClick={() => setOffer(false)}
           >
             <CrossIcon />
