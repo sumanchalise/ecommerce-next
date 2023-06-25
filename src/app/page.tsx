@@ -18,8 +18,8 @@ export default function Page() {
       <HeroSection />
       <WorkSection />
       <ProductSection />
-      <FollowUsInstagram />
-      <FollowUsFacebook />
+      <NameWaiting />
+      <FollowUsSection />
       <BlogSection />
     </div>
   );
@@ -69,7 +69,7 @@ const HeroSection = () => {
               className="object-cover"
               quality={100}
             />
-            <div className="absolute h-full w-full bg-black/50" />
+            <div className="absolute h-full w-full bg-black/40" />
           </div>
         ))}
       </Slider>
@@ -137,7 +137,7 @@ const WorkSection = () => {
     },
   ];
   return (
-    <div className="grid grid-cols-1 justify-items-center bg-[#F8F2EC] px-5 py-10 text-center md:grid-cols-2 md:px-20 lg:grid-cols-3 lg:px-48">
+    <div className="grid grid-cols-1 justify-items-center gap-2 bg-[#f8f2ec] px-5 py-14 text-center md:grid-cols-3 lg:grid-cols-3 lg:px-20 2xl:px-48">
       {works?.map((works) => {
         return (
           <div
@@ -201,7 +201,7 @@ const ProductSection = () => {
                 className="rounded-3xl object-cover"
                 quality={100}
               />
-              <div className="absolute h-full w-full rounded-3xl bg-black/50" />
+              <div className="absolute h-full w-full rounded-3xl bg-black/40" />
             </div>
 
             <div className="absolute right-5 top-1/4 flex flex-col gap-5 px-3 md:right-20 lg:right-16 lg:gap-10">
@@ -218,6 +218,26 @@ const ProductSection = () => {
       <button className="flex h-14 w-64 items-center justify-center rounded-full border-2 border-[#2B2B2B] font-JosefinSans text-sm font-bold uppercase text-[#2B2B2B]">
         Shop all products
       </button>
+    </div>
+  );
+};
+
+const NameWaiting = () => {
+  return (
+    <div>
+      <div>hello</div>
+    </div>
+  );
+};
+
+const FollowUsSection = () => {
+  return (
+    <div className="flex flex-col">
+      <div className="flex items-center justify-center py-14 text-center font-Mulish text-4xl">
+        Follow us on Facebook @SlingsForBabies
+      </div>
+      <FollowUsInstagram />
+      <FollowUsFacebook />
     </div>
   );
 };

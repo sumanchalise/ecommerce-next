@@ -53,7 +53,7 @@ export const FollowUsFacebook = () => {
   };
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+    <div className="grid grid-cols-2 md:grid-cols-4">
       {follow?.map(
         ({ imagelink, alt, icon, followers, title, link, page }, index) => (
           <div
@@ -71,7 +71,7 @@ export const FollowUsFacebook = () => {
               quality={100}
             />
             {hoverIndex === index && (
-              <div className="absolute z-50 flex h-full w-full flex-col items-center justify-center gap-4 bg-[#22374A] font-Mulish text-white">
+              <div className="absolute z-50 flex h-full w-full flex-col items-center justify-center gap-4 bg-[#22374A]/80 font-Mulish text-white">
                 <div className="h-14 w-14">{icon}</div>
                 <div className="font-JosefinSans text-2xl">{followers}</div>
                 <div className="text-base ">{title}</div>
@@ -136,7 +136,7 @@ export const FollowUsInstagram = () => {
   };
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+    <div className="grid grid-cols-2 md:grid-cols-4">
       {follow?.map(
         ({ imagelink, alt, icon, followers, title, link, page }, index) => (
           <div
@@ -154,7 +154,7 @@ export const FollowUsInstagram = () => {
               quality={100}
             />
             {hoverIndex === index && (
-              <div className="absolute z-50 flex h-full w-full flex-col items-center justify-center gap-4 bg-[#C2463B] font-Mulish text-white">
+              <div className="absolute z-50 flex h-full w-full flex-col items-center justify-center gap-4 bg-[#C2463B]/70 font-Mulish text-white">
                 <div className="h-14 w-14">{icon}</div>
                 <div className="font-JosefinSans text-2xl">{followers}</div>
                 <div className="text-base ">{title}</div>
