@@ -9,6 +9,7 @@ import {
   SecurityIcon,
 } from "@/icons";
 import Image from "next/image";
+import Link from "next/link";
 import { createRef } from "react";
 import Slider from "react-slick";
 
@@ -42,8 +43,6 @@ const HeroSection = () => {
     { id: "1", link: "/assets/images/bg-herosec1.png", alt: "bg-image1" },
     { id: "2", link: "/assets/images/bg-herosec2.png", alt: "bg-image2" },
     { id: "3", link: "/assets/images/bg-herosec3.png", alt: "bg-image3" },
-    { id: "4", link: "/assets/images/bg-herosec4.png", alt: "bg-image4" },
-    { id: "5", link: "/assets/images/bg-herosec5.png", alt: "bg-image5" },
   ];
 
   const sliderRef = createRef<Slider>();
@@ -57,7 +56,7 @@ const HeroSection = () => {
   };
 
   return (
-    <div className="relative flex h-[80vh] flex-col overflow-hidden">
+    <div className="relative flex h-[80vh] flex-col overflow-x-clip">
       <Slider ref={sliderRef} {...settings}>
         {bgImg.map(({ link, alt, id }) => (
           <div key={id} className="relative h-[80vh]">
@@ -69,7 +68,7 @@ const HeroSection = () => {
               className="object-cover"
               quality={100}
             />
-            <div className="absolute h-full w-full bg-black/40" />
+            <div className="absolute h-full w-full bg-black/10" />
           </div>
         ))}
       </Slider>
@@ -82,7 +81,7 @@ const HeroSection = () => {
           Our market starts at noon. You receive a 25% discount with the code
           SFG500 on selected wraps and ring slings.
         </div>
-        <div className="flex items-center gap-3">
+        <Link href="#" className="flex items-center gap-3">
           <div className="font-JosefinSans text-sm font-bold uppercase text-white">
             Shop all products
           </div>
@@ -91,7 +90,7 @@ const HeroSection = () => {
               <ArrowIcon />
             </div>
           </div>
-        </div>
+        </Link>
       </div>
 
       <button
@@ -164,20 +163,26 @@ const ProductSection = () => {
       image: "/assets/images/image2.png",
       title: "Woven Wraps",
       desc: "Woven wraps for children provide extreme comfort of carrying a baby in many ways!",
+      col: 1,
+      position: "bottom",
     },
     {
       id: "2",
       alt: "Product",
-      image: "/assets/images/image3.png",
+      image: "/assets/images/image16.png",
       title: "Ring Sling",
       desc: "Ring Slings are simple to use baby carriers suitable for newborn to toddler. ",
+      col: 2,
+      position: "right",
     },
     {
       id: "3",
       alt: "Product",
-      image: "/assets/images/image4.png",
+      image: "/assets/images/image17.png",
       title: "Soft Structured Carrier",
       desc: "The soft structured baby carrier has its own structure with padding, fabrics, straps and other accessories. ",
+      col: 2,
+      position: "left",
     },
     {
       id: "4",
@@ -185,47 +190,56 @@ const ProductSection = () => {
       image: "/assets/images/image5.png",
       title: "Accessories",
       desc: "Accessorize your Ergobaby Carrier with matching Infant Inserts, Weather Covers and more.",
+      col: 1,
+      position: "bottom",
     },
   ];
   return (
     <div className="flex flex-col items-center justify-center py-14">
-      <div className="gris-cols-1 relative grid w-full gap-4 px-5 pb-10 md:grid-cols-2 lg:px-40 2xl:px-64">
+      <div className="gris-cols-1 relative grid w-full gap-4 px-5 pb-10 md:grid-cols-2 lg:grid-cols-3 lg:px-20 2xl:px-40">
         {Products.map((product, id) => (
-          <div key={id} className="relative gap-2">
-            <div className="relative h-[45vh] rounded-3xl">
+          <div
+            key={id}
+            className={`relative gap-2 ${
+              product.col === 2 ? "lg:col-span-2" : "null"
+            }`}
+          >
+            <div className="relative h-[45vh]">
               <Image
                 src={product.image}
                 alt={product.alt}
                 fill
                 sizes="(max-width: 768px) 100vw"
-                className="rounded-3xl object-cover"
+                className=" object-cover"
                 quality={100}
               />
-              <div className="absolute h-full w-full rounded-3xl bg-black/40" />
+              <div className="absolute h-full w-full  bg-black/30" />
             </div>
 
-            <div className="absolute right-5 top-1/4 flex flex-col gap-5 px-3 md:right-20 lg:right-16 lg:gap-10">
-              <div className="font-JosefinSans text-5xl font-semibold text-white ">
+            <div
+              className={`absolute flex max-w-lg flex-col gap-2 bg-center text-white ${
+                product.position == "bottom"
+                  ? "bottom-[10%] left-5 px-3 md:bottom-[15%] md:left-3 lg:left-5 2xl:left-16"
+                  : product.position == "right"
+                  ? "bottom-[10%] left-5 px-3 md:bottom-[15%] md:left-3 lg:left-auto lg:right-20 lg:top-1/3"
+                  : "bottom-[10%] left-5 px-3 md:bottom-[15%] md:left-3 lg:left-20 lg:top-1/3"
+              }`}
+            >
+              <div className="font-JosefinSans text-3xl font-semibold lg:text-5xl">
                 {product.title}
               </div>
-              <div className="max-w-sm font-Mulish text-lg text-white">
+              <div className="font-Mulish text-base lg:max-w-sm lg:text-lg">
                 {product.desc}
               </div>
             </div>
           </div>
         ))}
       </div>
-      <button className="flex h-14 w-64 items-center justify-center rounded-full border-2 border-[#2B2B2B] font-JosefinSans text-sm font-bold uppercase text-[#2B2B2B]">
-        Shop all products
-      </button>
-    </div>
-  );
-};
-
-const NameWaiting = () => {
-  return (
-    <div>
-      <div>hello</div>
+      <Link href="#">
+        <button className="flex h-14 w-64 items-center justify-center rounded-full border-2 border-[#2B2B2B] font-JosefinSans text-sm font-bold uppercase text-[#2B2B2B]">
+          Shop all products
+        </button>
+      </Link>
     </div>
   );
 };
@@ -292,6 +306,14 @@ const BlogSection = () => {
       <button className="flex h-14 w-64 items-center justify-center rounded-full border-2 border-[#2B2B2B] font-JosefinSans text-sm font-bold uppercase text-[#2B2B2B]">
         read all articles
       </button>
+    </div>
+  );
+};
+
+const NameWaiting = () => {
+  return (
+    <div>
+      <div>hello</div>
     </div>
   );
 };
