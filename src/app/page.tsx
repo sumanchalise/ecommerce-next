@@ -1,5 +1,5 @@
 "use client";
-import { FollowUsFacebook, FollowUsInstagram } from "@/components/FollowUs";
+import { Featured, FollowUsFacebook, FollowUsInstagram } from "@/components";
 import {
   ArrowIcon,
   CheveronLeftIcon,
@@ -19,7 +19,7 @@ export default function Page() {
       <HeroSection />
       <WorkSection />
       <ProductSection />
-      <NameWaiting />
+      <Featured />
       <FollowUsSection />
       <BlogSection />
     </div>
@@ -306,14 +306,6 @@ const BlogSection = () => {
       <button className="flex h-14 w-64 items-center justify-center rounded-full border-2 border-[#2B2B2B] font-JosefinSans text-sm font-bold uppercase text-[#2B2B2B]">
         read all articles
       </button>
-    </div>
-  );
-};
-
-const NameWaiting = () => {
-  return (
-    <div>
-      <div>hello</div>
     </div>
   );
 };
