@@ -1,5 +1,9 @@
 "use client";
-import { Featured, FollowUsFacebook, FollowUsInstagram } from "@/components";
+import {
+  FeaturedComponent,
+  FollowUsFacebook,
+  FollowUsInstagram,
+} from "@/components";
 import {
   ArrowIcon,
   CheveronLeftIcon,
@@ -19,7 +23,7 @@ export default function Page() {
       <HeroSection />
       <WorkSection />
       <ProductSection />
-      <Featured />
+      <FeaturedComponent />
       <FollowUsSection />
       <BlogSection />
     </div>
@@ -31,7 +35,7 @@ const HeroSection = () => {
     slidesToScroll: 1,
     slidesToShow: 1,
     autoplay: true,
-    autoplaySpeed: 7000,
+    autoplaySpeed: 5000,
     fade: true,
     speed: 1000,
     lazyLoading: true,
@@ -73,19 +77,19 @@ const HeroSection = () => {
         ))}
       </Slider>
 
-      <div className="absolute right-5 top-1/4 flex flex-col gap-5 md:right-20 lg:right-56 lg:gap-10">
-        <div className="font-JosefinSans text-5xl font-semibold text-white ">
+      <div className="absolute right-5 top-[30%] flex flex-col gap-5 md:right-20 lg:right-72 lg:gap-10">
+        <h1 className="font-JosefinSans text-5xl font-semibold text-white ">
           King's Day 2020!
-        </div>
-        <div className="max-w-sm font-Mulish text-lg text-white">
+        </h1>
+        <p className="max-w-sm font-Mulish text-lg text-white">
           Our market starts at noon. You receive a 25% discount with the code
           SFG500 on selected wraps and ring slings.
-        </div>
+        </p>
         <Link href="#" className="flex items-center gap-3">
-          <div className="font-JosefinSans text-sm font-bold uppercase text-white">
+          <h3 className="font-JosefinSans text-sm font-bold uppercase text-white">
             Shop all products
-          </div>
-          <div className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-[#ffc84a]">
+          </h3>
+          <div className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-yellow">
             <div className="h-3 w-5  text-[#0E3C30]">
               <ArrowIcon />
             </div>
@@ -136,7 +140,7 @@ const WorkSection = () => {
     },
   ];
   return (
-    <div className="grid grid-cols-1 justify-items-center gap-2 bg-[#f8f2ec] px-5 py-14 text-center md:grid-cols-3 lg:grid-cols-3 lg:px-20 2xl:px-48">
+    <div className="grid grid-cols-1 justify-items-center gap-2 bg-cream px-5 py-14 text-center md:grid-cols-3 lg:grid-cols-3 lg:px-20 2xl:px-48">
       {works?.map((works) => {
         return (
           <div
@@ -144,10 +148,10 @@ const WorkSection = () => {
             className="flex max-w-xs flex-col items-center justify-center gap-3"
           >
             <div className="h-20 w-20">{works.icon}</div>
-            <div className="font-JosefinSans text-lg font-bold uppercase">
+            <h3 className="font-JosefinSans text-lg font-bold uppercase">
               {works.title}
-            </div>
-            <div className="font-Mulish text-base">{works.desc}</div>
+            </h3>
+            <p className="font-Mulish text-base">{works.desc}</p>
           </div>
         );
       })}
@@ -217,20 +221,20 @@ const ProductSection = () => {
             </div>
 
             <div
-              className={`absolute flex max-w-lg flex-col gap-2 bg-center text-white ${
+              className={`absolute left-5 flex max-w-lg flex-col gap-2 bg-center text-white ${
                 product.position == "bottom"
-                  ? "bottom-[10%] left-5 px-3 md:bottom-[15%] md:left-3 lg:left-5 2xl:left-16"
+                  ? "bottom-[10%] px-3 md:bottom-[15%] md:left-3 lg:left-5 2xl:left-16"
                   : product.position == "right"
-                  ? "bottom-[10%] left-5 px-3 md:bottom-[15%] md:left-3 lg:left-auto lg:right-20 lg:top-1/3"
-                  : "bottom-[10%] left-5 px-3 md:bottom-[15%] md:left-3 lg:left-20 lg:top-1/3"
+                  ? "bottom-[10%] px-3 md:bottom-[15%] md:left-3 lg:left-auto lg:right-10 lg:top-1/3"
+                  : "bottom-[10%] px-3 md:bottom-[15%] md:left-3 lg:left-20 lg:top-1/3"
               }`}
             >
-              <div className="font-JosefinSans text-3xl font-semibold lg:text-5xl">
+              <h3 className="font-JosefinSans text-3xl font-semibold lg:text-5xl">
                 {product.title}
-              </div>
-              <div className="font-Mulish text-base lg:max-w-sm lg:text-lg">
+              </h3>
+              <p className="font-Mulish text-base lg:max-w-sm lg:text-lg">
                 {product.desc}
-              </div>
+              </p>
             </div>
           </div>
         ))}
@@ -259,9 +263,9 @@ const FollowUsSection = () => {
 const BlogSection = () => {
   return (
     <div className="flex flex-col items-center justify-center gap-5 px-5 py-14 text-[#2B2B2B] lg:px-48">
-      <div className="py-5 font-JosefinSans text-base font-semibold uppercase">
+      <h3 className="py-5 font-JosefinSans text-base font-semibold uppercase">
         popular articles from our parents magazine
-      </div>
+      </h3>
       <div className="flex w-full flex-col items-start justify-center gap-8 pb-5 md:flex-row">
         <div className="w-full md:w-1/2">
           <div className="relative h-[45vh]">
@@ -274,12 +278,12 @@ const BlogSection = () => {
               quality={100}
             />
           </div>
-          <div className="pt-7 font-JosefinSans text-2xl capitalize">
+          <h3 className="pt-7 font-JosefinSans text-2xl capitalize">
             Happy International Babywearing week!
-          </div>
-          <div className="pt-1 font-Mulish text-base">
+          </h3>
+          <p className="pt-1 font-Mulish text-base">
             Hear from experienced babywearing mamas...
-          </div>
+          </p>
         </div>
         <div className="w-full md:w-1/2">
           <div className="relative h-[45vh]">
@@ -292,15 +296,15 @@ const BlogSection = () => {
               quality={100}
             />
           </div>
-          <div className="pt-7 font-JosefinSans text-2xl capitalize">
+          <h3 className="pt-7 font-JosefinSans text-2xl capitalize">
             8 Tips for New Moms: Surviving the First Weeks
-          </div>
-          <div className="pt-1 font-Mulish text-base">
+          </h3>
+          <p className="pt-1 font-Mulish text-base">
             The first few weeks at home with a newborn baby can be a roller
             coaster—physically, emotionally, and mentally. Here are our uncut,
             unfiltered tips for new moms for surviving those first couple of
             weeks with your newborn.
-          </div>
+          </p>
         </div>
       </div>
       <button className="flex h-14 w-64 items-center justify-center rounded-full border-2 border-[#2B2B2B] font-JosefinSans text-sm font-bold uppercase text-[#2B2B2B]">

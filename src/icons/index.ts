@@ -11,6 +11,7 @@ export * from "./FacebookIcon";
 export * from "./GermanyFlagIcon";
 export * from "./GiftIcon";
 export * from "./LikeIcon";
+export * from "./MenuIcon";
 export * from "./MysteryBoxIcon";
 export * from "./NetherlandFlagIcon";
 export * from "./PlantStarIcon";
