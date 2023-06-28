@@ -2,7 +2,6 @@
 import { FacebookIcon, LikeIcon } from "@/icons";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
 
 export const FollowUsFacebook = () => {
   const follow = [
@@ -44,24 +43,11 @@ export const FollowUsFacebook = () => {
     },
   ];
 
-  const [hoverIndex, setHoverIndex] = useState(null);
-  const handleMouseEnter = (index: any) => {
-    setHoverIndex(index);
-  };
-  const handleMouseLeave = () => {
-    setHoverIndex(null);
-  };
-
   return (
     <div className="grid grid-cols-2 md:grid-cols-4">
       {follow?.map(
         ({ imagelink, alt, icon, followers, title, link, page }, index) => (
-          <div
-            key={index}
-            className="relative h-[25vh] lg:h-[45vh]"
-            onMouseEnter={() => handleMouseEnter(index)}
-            onMouseLeave={() => handleMouseLeave()}
-          >
+          <div key={index} className="group relative h-[25vh]  lg:h-[45vh]">
             <Image
               src={imagelink}
               alt={alt}
@@ -70,16 +56,14 @@ export const FollowUsFacebook = () => {
               className="object-cover"
               quality={100}
             />
-            {hoverIndex === index && (
-              <div className="absolute z-50 flex h-full w-full flex-col items-center justify-center gap-4 bg-[#22374A]/80 font-Mulish text-white">
-                <div className="h-14 w-14">{icon}</div>
-                <div className="font-JosefinSans text-2xl">{followers}</div>
-                <div className="text-base ">{title}</div>
-                <Link href={link}>
-                  <div className="text-base">{page}</div>
-                </Link>
-              </div>
-            )}
+            <div className="absolute z-50 flex h-full w-full flex-col items-center justify-center gap-4 bg-darkblue/80 font-Mulish text-white opacity-0 transition delay-100 duration-300 ease-in-out group-hover:opacity-100">
+              <div className="h-14 w-14">{icon}</div>
+              <div className="font-JosefinSans text-2xl">{followers}</div>
+              <div className="text-base ">{title}</div>
+              <Link href={link}>
+                <div className="text-base">{page}</div>
+              </Link>
+            </div>
           </div>
         )
       )}
@@ -127,24 +111,11 @@ export const FollowUsInstagram = () => {
     },
   ];
 
-  const [hoverIndex, setHoverIndex] = useState(null);
-  const handleMouseEnter = (index: any) => {
-    setHoverIndex(index);
-  };
-  const handleMouseLeave = () => {
-    setHoverIndex(null);
-  };
-
   return (
     <div className="grid grid-cols-2 md:grid-cols-4">
       {follow?.map(
         ({ imagelink, alt, icon, followers, title, link, page }, index) => (
-          <div
-            key={index}
-            className="relative h-[25vh] lg:h-[45vh]"
-            onMouseEnter={() => handleMouseEnter(index)}
-            onMouseLeave={() => handleMouseLeave()}
-          >
+          <div key={index} className="group relative h-[25vh] lg:h-[45vh]">
             <Image
               src={imagelink}
               alt={alt}
@@ -153,16 +124,14 @@ export const FollowUsInstagram = () => {
               className="object-cover"
               quality={100}
             />
-            {hoverIndex === index && (
-              <div className="absolute z-50 flex h-full w-full flex-col items-center justify-center gap-4 bg-[#C2463B]/70 font-Mulish text-white">
-                <div className="h-14 w-14">{icon}</div>
-                <div className="font-JosefinSans text-2xl">{followers}</div>
-                <div className="text-base ">{title}</div>
-                <Link href={link}>
-                  <div className="text-base">{page}</div>
-                </Link>
-              </div>
-            )}
+            <div className="absolute z-50 flex h-full w-full flex-col items-center justify-center gap-4 bg-red/70 font-Mulish text-white opacity-0 transition delay-100 duration-300 ease-in-out group-hover:opacity-100">
+              <div className="h-14 w-14">{icon}</div>
+              <div className="font-JosefinSans text-2xl">{followers}</div>
+              <div className="text-base ">{title}</div>
+              <Link href={link}>
+                <div className="text-base">{page}</div>
+              </Link>
+            </div>
           </div>
         )
       )}
