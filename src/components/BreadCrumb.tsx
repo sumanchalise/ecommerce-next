@@ -1,3 +1,5 @@
+import clsx from "clsx";
+
 export const BreadCrumb = ({
   title,
   desc,
@@ -10,8 +12,20 @@ export const BreadCrumb = ({
   return (
     <div className="flex flex-col items-center justify-center gap-4 bg-cream py-8">
       <div className="font-JosefinSans text-5xl font-medium">{title}</div>
-      <div className="max-w-5xl text-center font-Mulish text-lg">{desc}</div>
-      <div className="text-center font-Mulish text-lg">{path}</div>
+      <div
+        className={clsx("max-w-5xl px-2 text-center font-Mulish text-lg", {
+          hidden: desc === "",
+        })}
+      >
+        {desc}
+      </div>
+      <div
+        className={clsx("text-center font-Mulish text-lg", {
+          hidden: path === "",
+        })}
+      >
+        {path}
+      </div>
     </div>
   );
 };

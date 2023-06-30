@@ -5,3 +5,15 @@
 
 @import "slick-carousel/slick/slick.css";
 @import "slick-carousel/slick/slick-theme.css";
+
+.testimonials .slick-dots li {
+  background-color: white;
+  margin-bottom: 3rem;
+  border-radius: 50%;
+}
+
+.testimonials .slick-dots .slick-active {
+  background-color: transparent;
+  border: 3px solid #ffffff;
+  opacity: 100%;
+}
