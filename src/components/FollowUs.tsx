@@ -47,7 +47,7 @@ export const FollowUsFacebook = () => {
     <div className="grid grid-cols-2 md:grid-cols-4">
       {follow?.map(
         ({ imagelink, alt, icon, followers, title, link, page }, index) => (
-          <div key={index} className="group relative h-[25vh]  lg:h-[45vh]">
+          <div key={index} className="group relative h-[250px]  lg:h-[440px]">
             <Image
               src={imagelink}
               alt={alt}
@@ -115,7 +115,7 @@ export const FollowUsInstagram = () => {
     <div className="grid grid-cols-2 md:grid-cols-4">
       {follow?.map(
         ({ imagelink, alt, icon, followers, title, link, page }, index) => (
-          <div key={index} className="group relative h-[25vh] lg:h-[45vh]">
+          <div key={index} className="group relative h-[250px] lg:h-[440px]">
             <Image
               src={imagelink}
               alt={alt}

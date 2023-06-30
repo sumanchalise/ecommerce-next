@@ -1,5 +1,6 @@
 "use client";
 import {
+  BreadCrumb,
   FeaturedComponent,
   FollowUsFacebook,
   FollowUsInstagram,
@@ -20,6 +21,13 @@ import Slider from "react-slick";
 export default function Page() {
   return (
     <div>
+      <BreadCrumb
+        title="Stretchy wrap"
+        desc="In our webshop you will find a complete collection of typical ergonomic
+              baby carriers. Whether you are looking for a Stretchy Wrap, Woven Wraps,
+              Mei Tai, RingSling or Click Carrier."
+        path="Home / Wraps / Stretchy wrap"
+      />
       <HeroSection />
       <WorkSection />
       <ProductSection />
@@ -32,9 +40,10 @@ export default function Page() {
 
 const HeroSection = () => {
   const settings = {
+    dotsClass: "!pb-10 slick-dots",
     slidesToScroll: 1,
     slidesToShow: 1,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 5000,
     fade: true,
     speed: 1000,
@@ -60,10 +69,10 @@ const HeroSection = () => {
   };
 
   return (
-    <div className="relative flex h-[80vh] flex-col overflow-x-clip">
+    <div className="relative flex h-[800px] flex-col overflow-x-clip">
       <Slider ref={sliderRef} {...settings}>
         {bgImg.map(({ link, alt, id }) => (
-          <div key={id} className="relative h-[80vh]">
+          <div key={id} className="relative h-[800px]">
             <Image
               src={link}
               alt={alt}
@@ -208,7 +217,7 @@ const ProductSection = () => {
               product.col === 2 ? "lg:col-span-2" : "null"
             }`}
           >
-            <div className="relative h-[45vh]">
+            <div className="relative h-[440px]">
               <Image
                 src={product.image}
                 alt={product.alt}
@@ -268,7 +277,7 @@ const BlogSection = () => {
       </h3>
       <div className="flex w-full flex-col items-start justify-center gap-8 pb-5 md:flex-row">
         <div className="w-full md:w-1/2">
-          <div className="relative h-[45vh]">
+          <div className="relative h-[440px]">
             <Image
               src="/assets/images/image14.png"
               alt="Blog image"
@@ -286,7 +295,7 @@ const BlogSection = () => {
           </p>
         </div>
         <div className="w-full md:w-1/2">
-          <div className="relative h-[45vh]">
+          <div className="relative h-[440px]">
             <Image
               src="/assets/images/image15.png"
               alt="Blog image"

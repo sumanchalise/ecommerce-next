@@ -29,8 +29,8 @@ export const FeaturedComponent = () => {
           </div>
         </div>
         <div className="w-full md:w-1/2">
-          <div className="h-[45vh] w-full md:max-w-xl xl:max-w-2xl">
-            <div className="relative h-[45vh]">
+          <div className="h-[440px] w-full md:max-w-xl xl:max-w-2xl">
+            <div className="relative h-[440px]">
               <Image
                 src="/assets/images/image6.png"
                 alt="Featured Image"
@@ -44,8 +44,8 @@ export const FeaturedComponent = () => {
         </div>
       </div>
       <div className="flex flex-col items-center justify-center gap-5 bg-darkblue py-14 text-white md:flex-row md:px-5 lg:gap-20 xl:gap-52  xl:py-0">
-        <div className="h-[45vh] w-full md:max-w-xl xl:h-full xl:w-[440px]">
-          <div className="relative h-[45vh] xl:h-[55vh]">
+        <div className="h-[440px] w-full md:max-w-xl xl:h-full xl:w-[440px]">
+          <div className="relative h-[440px] xl:h-[550px]">
             <Image
               src="/assets/images/image7.png"
               alt="Featured Image"
