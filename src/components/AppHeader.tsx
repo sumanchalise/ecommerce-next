@@ -64,9 +64,11 @@ export const AppHeader = () => {
   ];
 
   const [isNavOpen, setIsNavOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
   return (
     <div>
-      <div className="flex   px-8 xl:px-14">
+      <div className="flex px-8 xl:px-14">
+        {/* search and help shown in lg:device only */}
         <div className="hidden w-full items-center justify-start gap-5 lg:flex">
           <div className="flex w-80 items-center justify-between rounded-full border-2 border-gray-400 px-5 py-2">
             <input
@@ -91,6 +93,7 @@ export const AppHeader = () => {
             Blog
           </Link>
         </div>
+        {/* hamburger menu */}
         <div className="relative flex w-full  items-center justify-start lg:hidden">
           <div
             className="w-6 cursor-pointer hover:text-red"
@@ -99,6 +102,7 @@ export const AppHeader = () => {
             <MenuIcon />
           </div>
         </div>
+        {/* side menu */}
         <div
           className={clsx(
             "fixed left-0 top-0 z-50 flex w-full transition duration-700 ease-in-out",
@@ -157,7 +161,7 @@ export const AppHeader = () => {
             </div>
           </div>
         </div>
-
+        {/* logo image */}
         <div className="flex w-full justify-center">
           <Link href="/" className="relative h-24 w-44">
             <Image
@@ -169,7 +173,7 @@ export const AppHeader = () => {
             />
           </Link>
         </div>
-
+        {/* language basket shown in large device only */}
         <div className="hidden w-full items-center justify-end gap-7 leading-7 lg:flex">
           <div className="flex cursor-pointer items-center justify-center gap-1 hover:text-red">
             <h3>English</h3>
@@ -190,6 +194,7 @@ export const AppHeader = () => {
             <h3>Basket(3)</h3>
           </Link>
         </div>
+        {/* saerch icon for sm and ms device */}
         <div className="flex w-full items-center justify-end gap-5 lg:hidden">
           <div className="hidden w-60 items-center justify-center gap-1 rounded-full border-2 border-gray-400 px-3 py-2 md:flex lg:hidden">
             <input
@@ -201,14 +206,41 @@ export const AppHeader = () => {
               <SearchIcon />
             </div>
           </div>
-          <Link href="#" className="h-6 w-6 hover:text-red md:hidden">
+          <div
+            className="h-6 w-6 cursor-pointer hover:text-red md:hidden"
+            onClick={() => {
+              setIsSearchOpen(!isSearchOpen);
+            }}
+          >
             <SearchIcon />
-          </Link>
+          </div>
           <Link href="#" className="h-8 w-7 hover:text-red">
             <BasketIcon />
           </Link>
         </div>
       </div>
+      {/* search field for sm devices */}
+      <div
+        className={clsx("fixed top-0 z-20 min-h-screen w-full ", {
+          hidden: !isSearchOpen,
+        })}
+      >
+        <div
+          className="absolute top-0 min-h-screen w-full bg-darkblue/50"
+          onClick={() => setIsSearchOpen(!isSearchOpen)}
+        />
+        <div className="relative left-0 right-0 top-20 mx-auto flex w-72 items-center justify-between gap-1 rounded-full border-2 border-darkblue/80 bg-white px-3 py-2 ">
+          <input
+            type="text"
+            placeholder="Search"
+            className="overflow-hidden text-lg leading-tight text-gray-700 focus:outline-none"
+          />
+          <div className="flex h-6 w-8 justify-center hover:cursor-pointer hover:text-red">
+            <SearchIcon />
+          </div>
+        </div>
+      </div>
+      {/* menu list for large device */}
       <div className="mb-2 hidden items-center justify-center gap-10 overflow-hidden py-3 font-Mulish text-lg lg:flex">
         {menuItems.map((item) => (
           <div
@@ -254,7 +286,7 @@ export const AppHeader = () => {
           <p>Mystery Box</p>
         </Link>
       </div>
-
+      {/* offer section */}
       {offer && (
         <div className="relative flex items-center justify-center bg-darkblue py-2 text-white">
           <div className="flex items-center justify-center">

@@ -1,6 +1,5 @@
 "use client";
 import {
-  BreadCrumb,
   FeaturedComponent,
   FollowUsFacebook,
   FollowUsInstagram,
@@ -21,13 +20,13 @@ import Slider from "react-slick";
 export default function Page() {
   return (
     <div>
-      <BreadCrumb
+      {/* <BreadCrumb
         title="Stretchy wrap"
         desc="In our webshop you will find a complete collection of typical ergonomic
               baby carriers. Whether you are looking for a Stretchy Wrap, Woven Wraps,
               Mei Tai, RingSling or Click Carrier."
         path="Home / Wraps / Stretchy wrap"
-      />
+      /> */}
       <HeroSection />
       <WorkSection />
       <ProductSection />
@@ -40,16 +39,24 @@ export default function Page() {
 
 const HeroSection = () => {
   const settings = {
-    dotsClass: "!pb-10 slick-dots",
+    customPaging: function () {
+      return <div className="h-full w-full" />;
+    },
+    dotsClass: "slick-dots !flex justify-center gap-6 lg:gap-10",
+
     slidesToScroll: 1,
     slidesToShow: 1,
-    autoplay: false,
+    autoplay: true,
     autoplaySpeed: 5000,
     fade: true,
     speed: 1000,
     lazyLoading: true,
     dots: true,
     infinite: true,
+    arrows: false,
+    adaptiveHeight: true,
+    swipeToSlide: true,
+    touchThreshold: 10,
   };
 
   const bgImg = [
@@ -69,10 +76,13 @@ const HeroSection = () => {
   };
 
   return (
-    <div className="relative flex h-[800px] flex-col overflow-x-clip">
+    <div className="testimonials relative flex h-[450px] flex-col overflow-x-clip md:h-[600px] lg:h-[800px]">
       <Slider ref={sliderRef} {...settings}>
         {bgImg.map(({ link, alt, id }) => (
-          <div key={id} className="relative h-[800px]">
+          <div
+            key={id}
+            className="relative h-[450px] md:h-[600px] lg:h-[800px]"
+          >
             <Image
               src={link}
               alt={alt}
@@ -86,11 +96,11 @@ const HeroSection = () => {
         ))}
       </Slider>
 
-      <div className="absolute right-5 top-[30%] flex flex-col gap-5 md:right-20 lg:right-72 lg:gap-10">
-        <h1 className="font-JosefinSans text-5xl font-semibold text-white ">
+      <div className="absolute right-5 top-20 flex flex-col items-center gap-5 text-center md:right-20 md:top-[30%] md:items-start md:text-start lg:right-72 lg:gap-10">
+        <h1 className=" font-JosefinSans text-4xl font-semibold text-white  md:text-5xl ">
           King's Day 2020!
         </h1>
-        <p className="max-w-sm font-Mulish text-lg text-white">
+        <p className="max-w-xs font-Mulish text-base text-white  md:max-w-sm md:text-lg">
           Our market starts at noon. You receive a 25% discount with the code
           SFG500 on selected wraps and ring slings.
         </p>
@@ -260,7 +270,7 @@ const ProductSection = () => {
 const FollowUsSection = () => {
   return (
     <div className="flex flex-col">
-      <div className="flex items-center justify-center py-14 text-center font-Mulish text-4xl">
+      <div className="flex items-center justify-center py-14 text-center font-Mulish text-3xl md:text-4xl">
         Follow us on Facebook @SlingsForBabies
       </div>
       <FollowUsInstagram />
@@ -270,51 +280,46 @@ const FollowUsSection = () => {
 };
 
 const BlogSection = () => {
+  const blog = [
+    {
+      id: 1,
+      image: "/assets/images/image14.png",
+      alt: "Blog-image1",
+      title: "Happy International Babywearing week!",
+      desc: "Hear from experienced babywearing mamas...",
+    },
+    {
+      id: 2,
+      image: "/assets/images/image15.png",
+      alt: "Blog-image2",
+      title: "8 Tips for New Moms: Surviving the First Weeks",
+      desc: " The first few weeks at home with a newborn baby can be a oller coaster—physically, emotionally, and mentally. Here are our uncut, unfiltered tips for new moms for surviving those first couple of weeks with your newborn.",
+    },
+  ];
   return (
     <div className="flex flex-col items-center justify-center gap-5 px-5 py-14 text-[#2B2B2B] lg:px-48">
-      <h3 className="py-5 font-JosefinSans text-base font-semibold uppercase">
+      <h3 className="flex items-center justify-center py-5 text-center font-Mulish text-3xl capitalize md:text-4xl">
         popular articles from our parents magazine
       </h3>
       <div className="flex w-full flex-col items-start justify-center gap-8 pb-5 md:flex-row">
-        <div className="w-full md:w-1/2">
-          <div className="relative h-[440px]">
-            <Image
-              src="/assets/images/image14.png"
-              alt="Blog image"
-              fill
-              sizes="(max-width: 768px) 100vw"
-              className="object-cover"
-              quality={100}
-            />
+        {blog.map((blog) => (
+          <div key={blog.id} className="w-full md:w-1/2">
+            <div className="relative h-[440px]">
+              <Image
+                src={blog.image}
+                alt={blog.alt}
+                fill
+                sizes="(max-width: 768px) 100vw"
+                className="object-cover"
+                quality={100}
+              />
+            </div>
+            <h3 className="pt-7 font-JosefinSans text-2xl capitalize">
+              {blog.title}
+            </h3>
+            <p className="pt-1 font-Mulish text-base">{blog.desc}</p>
           </div>
-          <h3 className="pt-7 font-JosefinSans text-2xl capitalize">
-            Happy International Babywearing week!
-          </h3>
-          <p className="pt-1 font-Mulish text-base">
-            Hear from experienced babywearing mamas...
-          </p>
-        </div>
-        <div className="w-full md:w-1/2">
-          <div className="relative h-[440px]">
-            <Image
-              src="/assets/images/image15.png"
-              alt="Blog image"
-              fill
-              sizes="(max-width: 768px) 100vw"
-              className="object-cover"
-              quality={100}
-            />
-          </div>
-          <h3 className="pt-7 font-JosefinSans text-2xl capitalize">
-            8 Tips for New Moms: Surviving the First Weeks
-          </h3>
-          <p className="pt-1 font-Mulish text-base">
-            The first few weeks at home with a newborn baby can be a roller
-            coaster—physically, emotionally, and mentally. Here are our uncut,
-            unfiltered tips for new moms for surviving those first couple of
-            weeks with your newborn.
-          </p>
-        </div>
+        ))}
       </div>
       <button className="flex h-14 w-64 items-center justify-center rounded-full border-2 border-[#2B2B2B] font-JosefinSans text-sm font-bold uppercase text-[#2B2B2B]">
         read all articles
