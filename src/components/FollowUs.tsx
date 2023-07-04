@@ -124,7 +124,7 @@ export const FollowUsInstagram = () => {
               className="object-cover"
               quality={100}
             />
-            <div className="absolute z-50 flex h-full w-full flex-col items-center justify-center gap-4 bg-red/70 font-Mulish text-white opacity-0 transition delay-100 duration-300 ease-in-out group-hover:opacity-100">
+            <div className="absolute z-50 flex h-full w-full flex-col items-center justify-center gap-4 bg-secondary/70 font-Mulish text-white opacity-0 transition delay-100 duration-300 ease-in-out group-hover:opacity-100">
               <div className="h-14 w-14">{icon}</div>
               <div className="font-JosefinSans text-2xl">{followers}</div>
               <div className="text-base ">{title}</div>

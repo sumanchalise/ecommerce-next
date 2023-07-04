@@ -12,7 +12,7 @@ export default function page() {
           </div>
         </div>
         <div className="flex flex-col items-center justify-center gap-10 px-5">
-          <div className="flex w-full flex-col items-center justify-start gap-5 text-middlegray lg:justify-center">
+          <div className="text-gray-250 flex w-full flex-col items-center justify-start gap-5 lg:justify-center">
             <div className="flex flex-col items-start  gap-5 lg:flex-row  lg:items-center ">
               <label className="w-20 text-lg">Email:</label>
               <input

@@ -13,7 +13,7 @@ export default function page() {
         <div className="flex flex-col items-center justify-center  font-JosefinSans text-lg uppercase">
           create your own account:
         </div>
-        <div className="flex w-full flex-col items-center justify-start gap-5 text-middlegray lg:justify-center">
+        <div className="text-gray-250 flex w-full flex-col items-center justify-start gap-5 lg:justify-center">
           <div className="flex flex-col items-start  gap-5 py-2 lg:flex-row lg:items-center">
             <label className="w-32 text-lg">Social title:</label>
             <div className="flex w-96 items-start gap-5 lg:w-[600px]">
