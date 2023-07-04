@@ -11,18 +11,24 @@ import {
 import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export const AppHeader = () => {
+  const router = useRouter();
   const [offer, setOffer] = useState(true);
+  const [submenuOpen, setSubmenuOpen] = useState<number[]>([]);
   const menuItems = [
     {
       id: 1,
       title: "Wraps",
       link: "#",
       subitems: [
-        { id: 1, title: "half", link: "#" },
-        { id: 2, title: "full", link: "#" },
+        { id: 1, title: "Yaro Flex", link: "#" },
+        { id: 2, title: "Tula", link: "#" },
+        { id: 3, title: "Storchenwiege", link: "#" },
+        { id: 4, title: "Manduca", link: "#" },
+        { id: 5, title: "Marsupi", link: "#" },
       ],
     },
     {
@@ -30,8 +36,8 @@ export const AppHeader = () => {
       title: "Carriers",
       link: "#",
       subitems: [
-        { id: 1, title: "half", link: "#" },
-        { id: 2, title: "full", link: "#" },
+        { id: 1, title: "My Sol", link: "#" },
+        { id: 2, title: "Bondolino", link: "#" },
       ],
     },
     {
@@ -61,6 +67,9 @@ export const AppHeader = () => {
         { id: 2, title: "full", link: "#" },
       ],
     },
+    { id: 6, title: "sale", link: "/sale" },
+    { id: 7, title: "New", link: "/new" },
+    { id: 8, title: "Mystery Box", link: "/mystery", icon: <MysteryBoxIcon /> },
   ];
 
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -76,36 +85,37 @@ export const AppHeader = () => {
               placeholder="Search"
               className=" leading-tight text-gray-700 focus:outline-none"
             />
-            <div className="h-6 w-6 hover:cursor-pointer hover:text-red">
+            <div className="h-6 w-6 hover:cursor-pointer hover:text-secondary">
               <SearchIcon />
             </div>
           </div>
           <Link
             href="#"
-            className="flex items-center justify-center gap-2 hover:text-red"
+            className="flex items-center justify-center gap-2 hover:text-secondary"
           >
             <div className="h-5 w-6">
               <ChatBubbleIcon />
             </div>
             <h3>Help&nbsp;Me</h3>
           </Link>
-          <Link href="#" className=" hover:text-red">
+          <Link href="#" className=" hover:text-secondary">
             Blog
           </Link>
         </div>
         {/* hamburger menu */}
-        <div className="relative flex w-full  items-center justify-start lg:hidden">
+        <div className="relative flex w-full items-center justify-start  gap-1  lg:hidden">
           <div
-            className="w-6 cursor-pointer hover:text-red"
+            className="w-6 cursor-pointer hover:text-secondary"
             onClick={() => setIsNavOpen(!isNavOpen)}
           >
             <MenuIcon />
           </div>
+          <p className="text-lg font-medium">Menu</p>
         </div>
         {/* side menu */}
         <div
           className={clsx(
-            "fixed left-0 top-0 z-50 flex w-full transition duration-700 ease-in-out",
+            "fixed left-0 top-0 z-40 flex min-h-screen w-full transition duration-700 ease-in-out",
             {
               "-translate-x-full ": !isNavOpen,
               "translate-x-0 ": isNavOpen,
@@ -113,52 +123,114 @@ export const AppHeader = () => {
           )}
         >
           <div
-            className="flex min-h-screen w-full bg-darkblue/20"
+            className="absolute top-0 flex min-h-screen w-full bg-darkblue/20"
             onClick={() => setIsNavOpen(false)}
-          >
-            <div className="flex min-h-screen w-8/12 flex-col justify-start overflow-hidden bg-white px-10 py-5 align-top md:w-1/2">
-              <Link href="/" className=" w-36 ">
-                <div className="relative h-24 w-44">
-                  <Image
-                    src="/assets/images/Logo.png"
-                    fill
-                    alt="Logo"
-                    sizes="(max-width: 768px) 100vw"
-                    className="object-contain"
-                  />
-                </div>
-              </Link>
-              {menuItems.map((item) => (
-                <div
-                  key={item.id}
-                  className="group flex flex-col items-start justify-start gap-1 pt-5 capitalize leading-7"
+          />
+          <div className="z-50 flex min-h-screen w-8/12 flex-col items-start justify-start  bg-white px-10 py-5 align-top md:w-1/2 lg:w-2/5">
+            <Link href="/" className=" w-36 ">
+              <div className="relative h-24 w-44">
+                <Image
+                  src="/assets/images/Logo.png"
+                  fill
+                  alt="Logo"
+                  sizes="(max-width: 768px) 100vw"
+                  className="object-contain"
+                />
+              </div>
+            </Link>
+            {menuItems.map((item) => (
+              <div
+                key={item.id}
+                className="flex flex-col gap-1 overflow-y-auto pt-4 capitalize leading-7 transition-all duration-300 ease-out"
+                onClick={() => {
+                  if (item.link == "#") {
+                    const tmpList = submenuOpen;
+                    const openMenuIndex = submenuOpen.indexOf(item.id);
+                    let newOpenMenuList = submenuOpen;
+
+                    if (openMenuIndex > -1) {
+                      tmpList.splice(openMenuIndex, 1);
+                      newOpenMenuList = [...tmpList];
+                    } else newOpenMenuList = [...tmpList, item.id];
+                    setSubmenuOpen(newOpenMenuList);
+                  } else {
+                    router.push(item.link);
+                    setIsNavOpen(false);
+                  }
+                }}
+              >
+                <Link
+                  href={item.link}
+                  className="flex items-center justify-start gap-1  hover:text-secondary"
                 >
-                  <div className="flex items-center justify-center gap-1  hover:text-red">
-                    <Link
-                      href={item.link}
-                      className="font-mulish text-2xl font-semibold leading-7"
-                    >
-                      {item.title}
-                    </Link>
+                  <div className="font-mulish flex gap-1 text-xl font-semibold leading-7">
+                    {item.icon && (
+                      <div className="h-6 w-6">
+                        <MysteryBoxIcon />
+                      </div>
+                    )}
+                    {item.title}
+                  </div>
+                  {item.subitems ? (
                     <div className="h-2 w-4">
                       <CheveronDownIcon />
                     </div>
-                  </div>
+                  ) : (
+                    ""
+                  )}
+                </Link>
 
-                  <div className="hidden flex-col gap-1 group-hover:flex">
-                    {item.subitems?.map((subitem) => (
-                      <Link
-                        className="font-mulish pt-1 text-lg font-medium leading-7 hover:text-red"
-                        href={subitem.link}
-                        key={subitem.id}
-                      >
-                        {subitem.title}
-                      </Link>
-                    ))}
-                  </div>
+                <div
+                  className={`flex flex-col gap-1 overflow-hidden transition-all duration-1000 ease-in-out `}
+                  style={{
+                    maxHeight: submenuOpen.includes(item.id)
+                      ? `calc(${item?.subitems?.length}*3rem)`
+                      : "0rem",
+                  }}
+                >
+                  {item.subitems?.map((subitem) => (
+                    <Link
+                      className="font-mulish pl-5 pt-1 text-lg font-medium leading-7 hover:text-secondary "
+                      href={subitem.link}
+                      key={subitem.id}
+                      onClick={() => {
+                        setIsNavOpen(false);
+                      }}
+                    >
+                      {subitem.title}
+                    </Link>
+                  ))}
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
+
+            <Link
+              href="#"
+              className="font-mulish pt-4 text-xl font-semibold leading-7 hover:text-secondary"
+            >
+              Language
+            </Link>
+            <Link
+              href="#"
+              className=" font-mulish pt-4 text-xl font-semibold leading-7 hover:text-secondary"
+            >
+              Blog
+            </Link>
+            <Link
+              href="#"
+              className=" font-mulish pt-4 text-xl font-semibold leading-7 hover:text-secondary"
+            >
+              My Account
+            </Link>
+            <Link
+              href="#"
+              className="font-mulish flex items-center gap-2 pt-4 text-xl font-semibold leading-7 hover:text-secondary"
+            >
+              <div className="h-5 w-6">
+                <ChatBubbleIcon />
+              </div>
+              <h3>Help&nbsp;Me</h3>
+            </Link>
           </div>
         </div>
         {/* logo image */}
@@ -175,18 +247,18 @@ export const AppHeader = () => {
         </div>
         {/* language basket shown in large device only */}
         <div className="hidden w-full items-center justify-end gap-7 leading-7 lg:flex">
-          <div className="flex cursor-pointer items-center justify-center gap-1 hover:text-red">
+          <div className="flex cursor-pointer items-center justify-center gap-1 hover:text-secondary">
             <h3>English</h3>
             <div className="h-2 w-4">
               <CheveronDownIcon />
             </div>
           </div>
-          <Link href="#" className="hover:text-red">
+          <Link href="#" className="hover:text-secondary">
             My&nbsp;Account
           </Link>
           <Link
             href="#"
-            className="flex items-center justify-center hover:text-red"
+            className="flex items-center justify-center hover:text-secondary"
           >
             <div className="h-8 w-7 ">
               <BasketIcon />
@@ -202,19 +274,19 @@ export const AppHeader = () => {
               placeholder="Search"
               className=" overflow-hidden leading-tight text-gray-700 focus:outline-none"
             />
-            <div className="h-6 w-8 hover:cursor-pointer hover:text-red">
+            <div className="h-6 w-8 hover:cursor-pointer hover:text-secondary">
               <SearchIcon />
             </div>
           </div>
           <div
-            className="h-6 w-6 cursor-pointer hover:text-red md:hidden"
+            className="h-6 w-6 cursor-pointer hover:text-secondary md:hidden"
             onClick={() => {
               setIsSearchOpen(!isSearchOpen);
             }}
           >
             <SearchIcon />
           </div>
-          <Link href="#" className="h-8 w-7 hover:text-red">
+          <Link href="#" className="h-8 w-7 hover:text-secondary">
             <BasketIcon />
           </Link>
         </div>
@@ -235,7 +307,7 @@ export const AppHeader = () => {
             placeholder="Search"
             className="overflow-hidden text-lg leading-tight text-gray-700 focus:outline-none"
           />
-          <div className="flex h-6 w-8 justify-center hover:cursor-pointer hover:text-red">
+          <div className="flex h-6 w-8 justify-center hover:cursor-pointer hover:text-secondary">
             <SearchIcon />
           </div>
         </div>
@@ -247,19 +319,34 @@ export const AppHeader = () => {
             key={item.id}
             className="group flex flex-col items-start justify-start gap-1 capitalize"
           >
-            <div className="flex items-center justify-center gap-1 hover:text-red">
-              <Link href={item.link} className="font-mulish text-lg leading-7">
+            <div className="flex items-center justify-center gap-1 hover:text-secondary">
+              <Link
+                href={item.link}
+                className="font-mulish flex gap-1 text-lg leading-7"
+              >
+                {item.icon && (
+                  <div className="h-7 w-7">
+                    <MysteryBoxIcon />
+                  </div>
+                )}
+
                 {item.title}
               </Link>
-              <div className="h-1 w-3">
-                <CheveronDownIcon />
-              </div>
+              {item.subitems && (
+                <div className="h-2 w-4">
+                  <CheveronDownIcon />
+                </div>
+              )}
             </div>
 
-            <div className="absolute z-50 mt-7  hidden min-w-[100px] flex-col gap-1 bg-white p-4 shadow-lg group-hover:flex">
+            <div
+              className={`absolute z-50 mt-7 hidden min-w-[100px] flex-col gap-1 rounded-md bg-lightgray p-4 shadow-lg ${
+                item.subitems && "group-hover:flex"
+              }`}
+            >
               {item.subitems?.map((subitem) => (
                 <Link
-                  className="font-mulish text-lg leading-7 hover:text-red"
+                  className="font-mulish text-lg leading-7 hover:text-secondary"
                   href={subitem.link}
                   key={subitem.id}
                 >
@@ -269,22 +356,6 @@ export const AppHeader = () => {
             </div>
           </div>
         ))}
-
-        <Link href="#" className="text-lg leading-7  hover:text-red">
-          Sale
-        </Link>
-        <Link href="#" className="text-lg leading-7 hover:text-red">
-          New
-        </Link>
-        <Link
-          href="#"
-          className="flex items-center justify-center gap-1 hover:text-red"
-        >
-          <div className="h-7 w-7">
-            <MysteryBoxIcon />
-          </div>
-          <p>Mystery Box</p>
-        </Link>
       </div>
       {/* offer section */}
       {offer && (
