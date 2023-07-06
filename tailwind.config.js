@@ -22,7 +22,7 @@ module.exports = {
         sky: "#0097D8",
         darkblue: "#22374A",
         cream: "#F8F2EC",
-        secondary: "#C2463B",
+        secondary: "#C2463B" /*red*/,
         yellow: "#FFC84A",
         lightgray: "#f3f3f3",
         darkgray: "#b5b2b2",
