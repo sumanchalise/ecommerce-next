@@ -9,6 +9,8 @@ export * from "./CheveronRightIcon";
 export * from "./CrossIcon";
 export * from "./CryIcon";
 export * from "./EuIcon";
+export * from "./EyeClosedIcon";
+export * from "./EyeOpenIcon";
 export * from "./FacebookIcon";
 export * from "./FavoritesIcon";
 export * from "./GermanyFlagIcon";

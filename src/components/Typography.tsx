@@ -44,7 +44,6 @@ export const Typography: React.FunctionComponent<TypographyProps> = ({
   children,
   className,
   color,
-
   center = false,
   ...rest
 }) => {
@@ -60,11 +59,10 @@ export const Typography: React.FunctionComponent<TypographyProps> = ({
       "text-lg font-normal lg:text-2xl lg:leading-10 ": varient === "heading3",
       "font-semibold lg:font-bold lg:leading-10 text-base lg:text-lg":
         varient === "heading4",
-      "text-sm font-normal lg:text-base font-semibold uppercase":
-        varient === "heading5",
+      "text-base font-normal lg:text-lg uppercase": varient === "heading5",
       "text-base lg:text-lg lg:leading-7": varient === "body1",
       "text-sm lg:text-base ": varient === "body",
-      "font-josefin":
+      "font-JosefinSans":
         varient === "heading1" ||
         varient === "heading2" ||
         varient === "heading3" ||
