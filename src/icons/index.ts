@@ -26,5 +26,6 @@ export * from "./PlantStarIcon";
 export * from "./ScrollIcon";
 export * from "./SearchIcon";
 export * from "./SecurityIcon";
+export * from "./TickIcon";
 export * from "./TimerSmallIcon";
 export * from "./WorldwideIcon";
