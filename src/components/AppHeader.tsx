@@ -13,6 +13,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { Typography } from "./Typography";
 
 export const AppHeader = () => {
   const router = useRouter();
@@ -69,7 +70,12 @@ export const AppHeader = () => {
     },
     { id: 6, title: "sale", link: "/sale" },
     { id: 7, title: "New", link: "/new" },
-    { id: 8, title: "Mystery Box", link: "/mystery", icon: <MysteryBoxIcon /> },
+    {
+      id: 8,
+      title: "Mystery Box",
+      link: "/mysterybox",
+      icon: <MysteryBoxIcon />,
+    },
   ];
 
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -360,9 +366,7 @@ export const AppHeader = () => {
       {/* offer section */}
       {offer && (
         <div className="relative flex items-center justify-center bg-darkblue py-2 text-white">
-          <div className="flex items-center justify-center">
-            Free Shipping This Week Only!
-          </div>
+          <Typography varient="body"> Free Shipping This Week Only</Typography>
           <div
             className="absolute right-7 flex h-4 w-4 cursor-pointer justify-end"
             onClick={() => setOffer(false)}

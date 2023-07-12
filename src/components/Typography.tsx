@@ -8,6 +8,7 @@ const varientsMapping = {
   heading3: "h3",
   heading4: "h4",
   heading5: "h5",
+  heading6: "h6",
   body1: "p",
   body: "p",
 };
@@ -22,6 +23,7 @@ interface TypographyProps extends React.HTMLAttributes<HTMLAnchorElement> {
     | "heading3"
     | "heading4"
     | "heading5"
+    | "heading6"
     | "social"
     | "body1"
     | "body";
@@ -60,16 +62,20 @@ export const Typography: React.FunctionComponent<TypographyProps> = ({
       "font-semibold lg:font-bold lg:leading-10 text-base lg:text-lg":
         varient === "heading4",
       "text-base font-normal lg:text-lg uppercase": varient === "heading5",
+      "text-sm lg:text-base uppercase font-semibold": varient === "heading6",
       "text-base lg:text-lg lg:leading-7": varient === "body1",
       "text-sm lg:text-base ": varient === "body",
       "font-JosefinSans":
         varient === "heading1" ||
         varient === "heading2" ||
         varient === "heading3" ||
-        varient === "heading4" ||
-        varient === "heading5",
+        varient === "heading5" ||
+        varient === "heading6",
       "font-mulish":
-        varient === "body1" || varient === "body" || varient === "social",
+        varient === "body1" ||
+        varient === "body" ||
+        varient === "social" ||
+        varient === "heading4",
       "text-center": center,
       "text-dark": color === "dark",
       "text-sky": color === "sky",
