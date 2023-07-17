@@ -259,11 +259,11 @@ export const AppHeader = () => {
               <CheveronDownIcon />
             </div>
           </div>
-          <Link href="#" className="hover:text-secondary">
+          <Link href="/account" className="hover:text-secondary">
             My&nbsp;Account
           </Link>
           <Link
-            href="#"
+            href="/basket"
             className="flex items-center justify-center hover:text-secondary"
           >
             <div className="h-8 w-7 ">

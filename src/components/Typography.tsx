@@ -53,8 +53,7 @@ export const Typography: React.FunctionComponent<TypographyProps> = ({
 
   const classNames = clsx(
     {
-      "text-3xl font-semibold md:text-4xl lg:text-5xl xl:text-6xl":
-        varient === "heading1",
+      "text-3xl font-medium md:text-4xl lg:text-5xl": varient === "heading1",
       "text-2xl font-semibold lg:leading-10 lg:text-4xl":
         varient === "heading2",
       "py-10 text-2xl lg:text-4xl": varient === "social",

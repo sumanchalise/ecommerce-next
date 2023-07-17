@@ -1,4 +1,4 @@
-import clsx from "clsx";
+import { Typography } from "./Typography";
 
 export const BreadCrumb = ({
   title,
@@ -10,22 +10,19 @@ export const BreadCrumb = ({
   path: string;
 }) => {
   return (
-    <div className="flex w-full flex-col items-center justify-center gap-4 bg-lightgray py-8">
-      <div className="font-JosefinSans text-5xl font-medium">{title}</div>
-      <div
-        className={clsx("max-w-5xl px-2 text-center font-Mulish text-lg", {
-          hidden: desc === "",
-        })}
+    <div className="flex w-full flex-col items-center justify-center gap-2 bg-lightgray py-8">
+      <Typography varient="heading1">{title}</Typography>
+      <Typography
+        varient="body1"
+        center
+        hidden={desc === ""}
+        className="max-w-5xl px-2"
       >
         {desc}
-      </div>
-      <div
-        className={clsx("text-center font-Mulish text-lg", {
-          hidden: path === "",
-        })}
-      >
+      </Typography>
+      <Typography varient="body1" center hidden={path === ""}>
         {path}
-      </div>
+      </Typography>
     </div>
   );
 };
