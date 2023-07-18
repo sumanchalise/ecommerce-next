@@ -2,7 +2,7 @@ import clsx from "clsx";
 import { ReactEventHandler, ReactNode } from "react";
 
 interface props {
-  varient?: "footer" | "login" | "primary";
+  varient?: "footer" | "login" | "primary" | "cart";
   disabled?: boolean;
   children?: ReactNode;
   onClick?: ReactEventHandler;
@@ -27,6 +27,8 @@ export const Button = ({
             varient == "footer",
           "w-full max-w-sm bg-yellow py-3 font-medium uppercase tracking-wider lg:w-[610px]":
             varient === "login",
+          "h-auto w-full max-w-sm bg-yellow p-3 font-medium uppercase":
+            varient === "cart",
         }
       )}
     >
