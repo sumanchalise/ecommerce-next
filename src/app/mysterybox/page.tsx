@@ -7,12 +7,31 @@ import {
 export default function page() {
   return (
     <div>
+      <Mysteryboxsection />
       <FeaturedComponent />
       <InterestedOn>you might be interested on</InterestedOn>
       <FollowUsSection />
     </div>
   );
 }
+
+const Mysteryboxsection = () => {
+  return (
+    <div className="flex bg-lightgray px-40 py-7">
+      <div className="w-1/2 bg-red-500">image</div>
+      <div className="w-1/2 bg-blue-500">
+        <div className="div">a</div>
+        <div className="div">v</div>
+        <div className="div">b</div>
+        <div className="div">n</div>
+        <div className="div">m</div>
+        <div className="div">b</div>
+        <div className="div">a</div>
+        <div className="div">h</div>
+      </div>
+    </div>
+  );
+};
 
 const FollowUsSection = () => {
   return (
