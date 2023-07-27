@@ -132,7 +132,7 @@ export const AppHeader = () => {
             className="absolute top-0 flex min-h-screen w-full bg-darkblue/20"
             onClick={() => setIsNavOpen(false)}
           />
-          <div className="z-50 flex min-h-screen w-8/12 flex-col items-start justify-start  bg-white px-10 py-5 align-top md:w-1/2 lg:w-2/5">
+          <div className="z-50 flex min-h-screen w-8/12 flex-col items-start justify-start bg-white px-10 py-5 align-top md:w-1/2 lg:w-2/5">
             <Link href="/" className=" w-36 ">
               <div className="relative h-24 w-44">
                 <Image
