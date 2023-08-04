@@ -1,6 +1,12 @@
 "use client";
 
-import { Button, FollowUsFacebook, Typography } from "@/components";
+import {
+  Button,
+  FeaturedComponent,
+  FollowUsFacebook,
+  InterestedOn,
+  Typography,
+} from "@/components";
 import {
   BronzeStarIcon,
   CheveronDownIcon,
@@ -84,13 +90,13 @@ const GiftOptions = [
   },
 ];
 
-export default function page() {
+export default function Page() {
   return (
     <div>
       <Mysteryboxsection />
-      {/* <FeaturedComponent />
+      <FeaturedComponent />
       <InterestedOn>you might be interested on</InterestedOn>
-      <FollowUsSection /> */}
+      <FollowUsSection />
     </div>
   );
 }

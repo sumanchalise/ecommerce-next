@@ -11,7 +11,7 @@ import {
 } from "@/icons";
 import Link from "next/link";
 
-export default function page() {
+export default function Page() {
   const account = [
     {
       id: 1,

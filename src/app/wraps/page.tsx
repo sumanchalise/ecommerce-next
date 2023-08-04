@@ -4,7 +4,7 @@ import { TickIcon } from "@/icons";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function page() {
+export default function Page() {
   const display = [
     {
       id: 1,
