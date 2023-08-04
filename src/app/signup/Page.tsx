@@ -5,7 +5,7 @@ import clsx from "clsx";
 import Link from "next/link";
 import { useState } from "react";
 
-export default function page() {
+export default function Page() {
   const [isHidden, setIsHidden] = useState(true);
   const [isDisabled, setIsDisabled] = useState(true);
   return (

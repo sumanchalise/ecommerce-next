@@ -21,13 +21,6 @@ import Slider from "react-slick";
 export default function Page() {
   return (
     <div>
-      {/* <BreadCrumb
-        title="Stretchy wrap"
-        desc="In our webshop you will find a complete collection of typical ergonomic
-              baby carriers. Whether you are looking for a Stretchy Wrap, Woven Wraps,
-              Mei Tai, RingSling or Click Carrier."
-        path="Home / Wraps / Stretchy wrap"
-      /> */}
       <HeroSection />
       <WorkSection />
       <ProductSection />
@@ -44,7 +37,6 @@ const HeroSection = () => {
       return <div className="h-full w-full" />;
     },
     dotsClass: "slick-dots !flex justify-center gap-6 lg:gap-10",
-
     slidesToScroll: 1,
     slidesToShow: 1,
     autoplay: true,
@@ -57,7 +49,6 @@ const HeroSection = () => {
     arrows: false,
     adaptiveHeight: true,
     swipeToSlide: true,
-    touchThreshold: 10,
   };
 
   const bgImg = [
@@ -99,7 +90,7 @@ const HeroSection = () => {
 
       <div className="absolute right-5 top-20 flex flex-col items-center gap-5 text-center md:right-20 md:top-[30%] md:items-start md:text-start lg:right-72 lg:gap-10">
         <h1 className=" font-JosefinSans text-4xl font-semibold text-white  md:text-5xl ">
-          King's Day 2020!
+          King&apos;s Day 2020!
         </h1>
         <p className="max-w-xs font-Mulish text-base text-white  md:max-w-sm md:text-lg">
           Our market starts at noon. You receive a 25% discount with the code

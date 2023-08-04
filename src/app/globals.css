@@ -27,3 +27,14 @@
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+
+.mystery .slick-dots li {
+  margin-bottom: 0.6rem;
+  height: 5rem;
+  width: 5rem;
+}
+.mystery .slick-dots .slick-active {
+  opacity: 0.5;
+  height: 5rem;
+  width: 5rem;
+}

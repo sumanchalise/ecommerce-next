@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-export default function page() {
+export default function Page() {
   const [basket, setBasket] = useState([
     {
       id: 1,

@@ -227,48 +227,47 @@ export default function page() {
         </div>
         <div className="font-Mulish text-base leading-7 md:text-lg">
           <p>
-            We're parents too, and we know how overwhelming it can feel to shop
+            {`We're parents too, and we know how overwhelming it can feel to shop
             for baby products. That's why Colugo was born to create a no-brainer
             shopping experience for the next generation of parents where you can
-            buy quality products at a price that actually makes sense.
+            buy quality products at a price that actually makes sense.`}
           </p>
           <p>
-            We're parents too, and we know how overwhelming it can feel to shop
+            {`We're parents too, and we know how overwhelming it can feel to shop
             for baby products. That's why Colugo was born- to create a
             no-brainer shopping experience for the next generation of parents
             where you can buy quality products at a price that actually makes
-            sense.
+            sense.`}
             <br />
           </p>
           <p>
-            We're parents too, and we know how overwhelming it can feel to shop
+            {`We're parents too, and we know how overwhelming it can feel to shop
             for baby products. That's why Colugo was born--to create a
             no-brainer shopping experience for the next generation of parents
             where you can buy quality products at a price that actually makes
-            sense. <br />
+            sense.`}
+            <br />
             <br />
           </p>
           <p>
-            We're parents too, and we know how overwhelming it can feel to shop
+            {`We're parents too, and we know how overwhelming it can feel to shop
             for baby products. That's why Colugo was born to create a no-brainer
             shopping experience for the next generation of parents where you can
-            buy quality products at a price that actually makes sense.
+            buy quality products at a price that actually makes sense.`}
           </p>
 
           <p>
-            We're parents too, and we know how overwhelming it can feel to shop
-            for baby products. That's why Colugo was born- to create a
-            no-brainer shopping experience for the next generation of parents
-            where you can buy quality products at a price that actually makes
-            sense.
+            {`We're parents too, and we know how overwhelming it can feel to shop
+            for baby products. That's why Colugo was born to create a no-brainer
+            shopping experience for the next generation of parents where you can
+            buy quality products at a price that actually makes sense.`}
           </p>
 
           <p>
-            We're parents too, and we know how overwhelming it can feel to shop
-            for baby products. That's why Colugo was born- to create a
-            no-brainer shopping experience for the next generation of parents
-            where you can buy quality products at a price that actually makes
-            sense.
+            {`We're parents too, and we know how overwhelming it can feel to shop
+            for baby products. That's why Colugo was born to create a no-brainer
+            shopping experience for the next generation of parents where you can
+            buy quality products at a price that actually makes sense.`}
           </p>
         </div>
       </div>

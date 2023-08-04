@@ -8,7 +8,7 @@ export default function PageNotFound() {
         <CryIcon />
       </div>
       <div className="max-w-sm text-center font-JosefinSans text-4xl font-semibold  capitalize leading-[50px] md:max-w-lg ">
-        the page you are looking for doesn't exist :(
+        the page you are looking for doesn&apos;t exist :(
       </div>
       <div className="text-base font-medium">
         We apologize for the inconvinence...
