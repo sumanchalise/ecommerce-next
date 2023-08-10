@@ -78,6 +78,14 @@ export const AppHeader = () => {
     },
   ];
 
+  const Language = [
+    { id: 100, lang: "English", action: "#" },
+    { id: 101, lang: "English - AUS", action: "#" },
+    { id: 102, lang: "English - India", action: "#" },
+    { id: 103, lang: "English - UK", action: "#" },
+    { id: 104, lang: "English - US", action: "#" },
+  ];
+
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   return (
@@ -252,13 +260,26 @@ export const AppHeader = () => {
           </Link>
         </div>
         {/* language basket shown in large device only */}
-        <div className="hidden w-full items-center justify-end gap-7 leading-7 lg:flex">
-          <div className="flex cursor-pointer items-center justify-center gap-1 hover:text-secondary">
-            <h3>English</h3>
-            <div className="h-2 w-4">
-              <CheveronDownIcon />
+        <div className=" hidden w-full items-center justify-end gap-7 leading-7 lg:flex">
+          <div className="group flex cursor-pointer items-center justify-center gap-1">
+            <div className="flex items-center justify-center gap-1 hover:text-secondary">
+              <h3>English</h3>
+              <div className="h-2 w-4">
+                <CheveronDownIcon />
+              </div>
+            </div>
+            <div className="absolute z-20 mt-48 hidden flex-col rounded-md bg-lightgray px-5 py-3 font-JosefinSans shadow-lg group-hover:flex">
+              {Language.map((item, id) => (
+                <div
+                  className=" hover:cursor-pointer hover:text-secondary"
+                  key={id}
+                >
+                  {item.lang}
+                </div>
+              ))}
             </div>
           </div>
+
           <Link href="/account" className="hover:text-secondary">
             My&nbsp;Account
           </Link>
@@ -346,7 +367,7 @@ export const AppHeader = () => {
             </div>
 
             <div
-              className={`absolute z-50 mt-7 hidden min-w-[100px] flex-col gap-1 rounded-md bg-lightgray p-4 shadow-lg ${
+              className={`absolute z-50 mt-7 hidden min-w-[100px] flex-col gap-1 rounded-md bg-lightgray px-6 py-4 shadow-lg ${
                 item.subitems && "group-hover:flex"
               }`}
             >
