@@ -27,7 +27,7 @@ import { ShareIcon } from "@/icons/ShareIcon";
 import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
-import { SetStateAction, createRef, useState } from "react";
+import { SetStateAction, createRef, useEffect, useState } from "react";
 import Slider from "react-slick";
 
 const Images = [
@@ -96,7 +96,7 @@ export default function Page() {
       <Mysteryboxsection />
       <FeaturedComponent />
       <InterestedOn>you might be interested on</InterestedOn>
-      <FollowUsSection />
+      <FollowUsFacebook />
     </div>
   );
 }
@@ -138,8 +138,8 @@ const Mysteryboxsection = () => {
   const settings = {
     customPaging: function (i: number) {
       return (
-        <div className="h-20 w-20">
-          <div className="relative h-20 w-20">
+        <div className="hidden h-20 w-20 md:flex ">
+          <div className="relative hidden h-20 w-20 md:flex">
             <Image
               src={`/assets/images/image${i + 1}.png`}
               alt="hello"
@@ -152,8 +152,8 @@ const Mysteryboxsection = () => {
         </div>
       );
     },
-    dotsClass: "slick-dots !flex absolute top-0 right-24 flex-col",
-
+    dotsClass:
+      "slick-dots !hidden 2xl:!flex absolute top-0 -left-24 flex-col h-96 overflow-y-auto overflow-x-visible !w-[90px]",
     slidesToScroll: 1,
     slidesToShow: 1,
     autoplay: true,
@@ -178,25 +178,32 @@ const Mysteryboxsection = () => {
     sliderRef?.current && sliderRef?.current?.slickNext();
   };
 
+  useEffect(() => {
+    setValue(1);
+  }, [selectedGift]);
+
   return (
     <div>
-      <div className="flex flex-col items-start justify-center gap-5 bg-lightgray py-14 md:flex-row md:px-5 lg:gap-16">
+      <div className="flex flex-col items-start justify-center gap-5 bg-lightgray px-2 py-14 md:flex-row lg:px-10">
         {/* Images */}
-        <div className="flex w-2/5 items-center justify-end gap-5">
+        <div className="flex w-full items-center justify-center md:w-1/2">
           <button
             onClick={previousSlide}
-            className="right-20 top-[60%] h-10 w-10 md:top-[40%]"
+            className="relative left-0 top-[50%] z-20 h-7 w-7 rounded-full bg-white md:top-[40%] lg:top-[60%] lg:h-10 lg:w-10"
           >
-            <div className="flex h-10 w-10 items-center justify-center text-black">
+            <div className="flex h-7 w-7 items-center justify-start text-black hover:text-secondary lg:h-10 lg:w-10">
               {<CheveronLeftIcon />}
             </div>
           </button>
 
-          <div className="flex w-[630px] justify-end">
-            <div className="mystery relative left-0 h-[790px] w-[526px]">
+          <div className="flex w-[90%] justify-center px-2 md:justify-end xl:w-[630px]">
+            <div className="mystery relative left-0 h-[560px] w-[100%] lg:h-[700px] xl:h-[790px] xl:w-[526px]">
               <Slider ref={sliderRef} {...settings} className="flex flex-col">
                 {Images.map((image) => (
-                  <div className="relative h-[790px] w-[526px]" key={image.id}>
+                  <div
+                    className="relative h-[560px] w-[100%] md:w-[355px] lg:h-[700px] xl:h-[790px] xl:w-[526px]"
+                    key={image.id}
+                  >
                     <Image
                       src={image.src}
                       alt={image.alt}
@@ -212,15 +219,15 @@ const Mysteryboxsection = () => {
           </div>
           <button
             onClick={nextSlide}
-            className="top-[60%] h-10 w-10 md:top-[40%]"
+            className="relative right-0 top-[50%] z-20 h-7 w-7 rounded-full bg-white md:top-[40%] lg:top-[60%] lg:h-10 lg:w-10"
           >
-            <div className="flex h-10 w-10 items-center justify-center ">
+            <div className="flex h-7 w-7 items-center justify-center hover:text-secondary lg:h-10 lg:w-10">
               {<CheveronRightIcon />}
             </div>
           </button>
         </div>
 
-        <div className="flex w-2/5 flex-col gap-5">
+        <div className="flex w-full flex-col gap-2 px-5 md:w-1/2 lg:gap-6">
           <Typography varient="body1" color="darkgray">
             Home / Mystery Box
           </Typography>
@@ -229,7 +236,7 @@ const Mysteryboxsection = () => {
             {`SFB Mystery box - ${selectedGift.name}`}
           </Typography>
 
-          <div className="flex w-3/4 justify-between">
+          <div className="flex w-full justify-between xl:w-3/4">
             <div className="flex flex-col items-start">
               <Typography varient="social">${selectedGift.price}</Typography>
               <Typography varient="body1" color="darkgray">
@@ -242,7 +249,7 @@ const Mysteryboxsection = () => {
             <div className="">
               <div className="flex items-center gap-2 ">
                 {selectedGift.stock == 0 ? (
-                  <div className="text-red h-4 w-4 rotate-90 stroke-2">
+                  <div className="h-4 w-4 rotate-90 stroke-2 text-secondary">
                     <ProhibitionIcon />
                   </div>
                 ) : (
@@ -291,15 +298,13 @@ const Mysteryboxsection = () => {
           </div>
 
           {/* Option Box */}
-          <div className="w-2/3 ">
+          <div className="w-full xl:w-2/3">
             <div
               onClick={showAllOptions}
               className="flex items-center justify-between gap-5 border-2 border-darkgray px-5 py-3"
             >
-              <div />
               {/* for alignment */}
-
-              <div className="flex cursor-pointer items-center gap-2">
+              <div className="flex w-full cursor-pointer items-center justify-center gap-2">
                 <div className="h-10 w-10">{selectedGift.icon}</div>
                 {selectedGift.title}
               </div>
@@ -311,25 +316,25 @@ const Mysteryboxsection = () => {
 
             {showOptions && (
               // {isClick && (
-              <div className="absolute z-10 flex w-1/4 justify-center  ">
+              <div className="absolute z-10 flex w-[90%] justify-center py-2 md:w-1/2 lg:w-1/4">
                 <div className="flex flex-col items-start gap-2 ">
                   {GiftOptions?.map((option) => (
                     <div
                       key={option.id}
-                      className="z-10 flex cursor-pointer items-center gap-2 pl-5"
+                      className="z-10 flex cursor-pointer items-center gap-2 "
                       onClick={() => handleOptionSelect(option)}
                     >
                       <div className="h-10 w-10 ">{option.icon}</div>
                       {option.title}
                     </div>
                   ))}
-                  <div className="absolute top-0 h-full w-3/4 bg-lightgray/90 " />
+                  <div className="absolute left-0 top-0 h-full w-full bg-cream md:left-10 md:w-[80%] " />
                 </div>
               </div>
             )}
           </div>
 
-          <div className="flex items-center gap-5">
+          <div className="flex flex-wrap items-center justify-evenly gap-5 px-10 md:px-0 lg:justify-start">
             {/* increase decrease */}
             <div className="flex w-fit items-center border border-darkgray bg-white p-2">
               <div
@@ -341,14 +346,19 @@ const Mysteryboxsection = () => {
               <p className="w-14 text-center text-lg">{value}</p>
               <div
                 className="flex h-5 w-4 items-center justify-center text-darkgray hover:cursor-pointer"
-                onClick={() => setValue(value + 1)}
+                onClick={() =>
+                  value < selectedGift.stock && setValue(value + 1)
+                }
               >
                 <PlusIcon />
               </div>
             </div>
 
             {/* Button */}
-            <Link href={selectedGift.stock < 1 ? "/notify" : "/basket"}>
+            <Link
+              href={selectedGift.stock < 1 ? "/notify" : "/basket"}
+              className="order-last col-span-2"
+            >
               <Button varient="product">
                 {selectedGift.stock < 1
                   ? "NOTIFY WHEN AVAILABLE"
@@ -360,7 +370,7 @@ const Mysteryboxsection = () => {
             <div
               onClick={() => setLike(!like)}
               className={clsx(
-                "h-10 w-10 rounded-full border-2 border-darkgray p-2 text-dark hover:cursor-pointer",
+                "h-10 w-10 rounded-full border-2 border-darkgray p-2 text-dark hover:cursor-pointer lg:order-last",
                 {
                   "border-secondary bg-secondary text-white": like,
                   "hover:bg-darkgray": !like,
@@ -380,7 +390,7 @@ const Mysteryboxsection = () => {
         </div>
       </div>
       {/* Description */}
-      <div className="flex flex-col items-center justify-center gap-5 py-10">
+      <div className="flex flex-col items-center justify-center gap-5 px-5 py-10">
         <div className="flex flex-col gap-5">
           <div className="flex flex-col items-start gap-5 ">
             <Typography
@@ -430,17 +440,6 @@ const Mysteryboxsection = () => {
           </Typography>
         </div>
       </div>
-    </div>
-  );
-};
-
-const FollowUsSection = () => {
-  return (
-    <div className="flex flex-col">
-      <div className="flex items-center justify-center py-14 text-center font-Mulish text-3xl md:text-4xl">
-        Follow us on Facebook @SlingsForBabies
-      </div>
-      <FollowUsFacebook />
     </div>
   );
 };

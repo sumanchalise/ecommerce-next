@@ -29,7 +29,7 @@ export const Button = ({
             varient === "login",
           "h-auto w-full max-w-sm bg-yellow p-3 font-medium uppercase":
             varient === "cart",
-          "bg-yellow px-10 py-3 tracking-widest lg:w-fit":
+          "w-80 bg-yellow px-10 py-3 tracking-widest lg:w-fit":
             varient === "product",
         }
       )}

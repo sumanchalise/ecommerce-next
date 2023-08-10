@@ -1,6 +1,6 @@
 export const PlatinumIcon = () => {
   return (
-    <svg viewBox="0 0 300 300">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
       <path d="m 55.8 122.8 l 92.8 108.8 l -41.2444 -108.8 z" fill="#b6cfeb" />
       <path d="M 189.8444 122.8 L 148.6 231.6 l 92.8 -108.8 z" fill="#d2ecf7" />
       <path

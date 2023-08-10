@@ -25,7 +25,8 @@ export default function Page() {
       <WorkSection />
       <ProductSection />
       <FeaturedComponent />
-      <FollowUsSection />
+      <FollowUsFacebook />
+      <FollowUsInstagram />
       <BlogSection />
     </div>
   );
@@ -112,7 +113,7 @@ const HeroSection = () => {
         onClick={previousSlide}
         className="absolute left-5 top-[60%] flex h-10 w-10 items-center justify-center rounded-full md:top-[40%] lg:h-20 lg:w-20"
       >
-        <div className="flex h-16 w-16 items-center justify-center p-1">
+        <div className="flex h-16 w-16 items-center justify-center p-1 text-white">
           {<CheveronLeftIcon />}
         </div>
       </button>
@@ -121,7 +122,7 @@ const HeroSection = () => {
         onClick={nextSlide}
         className="absolute right-5 top-[60%] flex h-10 w-10 items-center justify-center rounded-full md:top-[40%] lg:h-20 lg:w-20"
       >
-        <div className="flex h-16 w-16 items-center justify-center p-1">
+        <div className="flex h-16 w-16 items-center justify-center p-1 text-white">
           {<CheveronRightIcon />}
         </div>
       </button>
@@ -253,18 +254,6 @@ const ProductSection = () => {
       <Link href="#" className="w-fit">
         <Button varient="primary">Shop all products</Button>
       </Link>
-    </div>
-  );
-};
-
-const FollowUsSection = () => {
-  return (
-    <div className="flex flex-col">
-      <div className="flex items-center justify-center py-14 text-center font-Mulish text-3xl md:text-4xl">
-        Follow us on Facebook @SlingsForBabies
-      </div>
-      <FollowUsInstagram />
-      <FollowUsFacebook />
     </div>
   );
 };
