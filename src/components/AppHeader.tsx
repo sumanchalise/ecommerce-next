@@ -98,7 +98,7 @@ export const AppHeader = () => {
             <input
               type="text"
               placeholder="Search"
-              className=" leading-tight text-gray-700 focus:outline-none"
+              className="w-full leading-tight text-gray-700 focus:outline-none"
             />
             <div className="h-6 w-6 hover:cursor-pointer hover:text-secondary">
               <SearchIcon />
