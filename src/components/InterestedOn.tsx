@@ -82,7 +82,7 @@ export const InterestedOn = ({ children }: { children: ReactNode }) => {
                     <div className="flex h-3 w-3 stroke-2">
                       <CrossIcon />
                     </div>
-                    <p>Not In Stock</p>
+                    <p>Out of Stock</p>
                   </div>
                 )}
               </div>

@@ -18,28 +18,28 @@ export default function Page() {
       name: "Information",
       icon: <InformationIcon />,
       infoicon: <MailIcon />,
-      link: "#",
+      link: "/information",
     },
     {
       id: 2,
       name: "Address",
       icon: <AddressIcon />,
       infoicon: <HandPenIcon />,
-      link: "#",
+      link: "/address",
     },
     {
       id: 3,
       name: "Favorites",
       icon: <FavoritesIcon />,
       infoicon: <LoveIcon />,
-      link: "#",
+      link: "/favorites",
     },
     {
       id: 4,
       name: "Order History",
       icon: <HistoryIcon />,
       infoicon: <TimerSmallIcon />,
-      link: "#",
+      link: "/history",
     },
   ];
   return (
@@ -50,9 +50,9 @@ export default function Page() {
           <Link
             href={account.link}
             key={account.id}
-            className="flex h-48 w-44 flex-col items-center justify-center gap-2"
+            className=" group flex h-48 w-44 flex-col items-center justify-center gap-2 hover:text-secondary"
           >
-            <div className="flex h-40 w-40 items-center justify-center border-2 border-dashed border-gray-250 p-10 hover:border-secondary hover:text-secondary">
+            <div className="flex h-40 w-40 items-center justify-center border-2 border-dashed border-gray-250 p-10 group-hover:border-secondary">
               {account.icon}
             </div>
             <div className="flex items-center justify-center gap-1 object-contain">

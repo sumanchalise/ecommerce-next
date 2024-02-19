@@ -23,13 +23,13 @@ export const AppHeader = () => {
     {
       id: 1,
       title: "Wraps",
-      link: "#",
+      link: "/wraps",
       subitems: [
-        { id: 1, title: "Yaro Flex", link: "#" },
-        { id: 2, title: "Tula", link: "#" },
+        { id: 1, title: "Stretchy Wrap", link: "/stretchywrap" },
+        { id: 2, title: "Faro Flex", link: "#" },
         { id: 3, title: "Storchenwiege", link: "#" },
-        { id: 4, title: "Manduca", link: "#" },
-        { id: 5, title: "Marsupi", link: "#" },
+        { id: 4, title: "Madura", link: "#" },
+        { id: 5, title: "Marsupia", link: "#" },
       ],
     },
     {
@@ -38,7 +38,8 @@ export const AppHeader = () => {
       link: "#",
       subitems: [
         { id: 1, title: "My Sol", link: "#" },
-        { id: 2, title: "Bondolino", link: "#" },
+        { id: 2, title: "Bandoline", link: "#" },
+        { id: 3, title: "Tula", link: "#" },
       ],
     },
     {

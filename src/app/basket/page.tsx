@@ -82,7 +82,7 @@ export default function Page() {
   return (
     <div>
       <BreadCrumb title="Shopping basket" desc="" path="Home / Basket" />
-      <div className="flex flex-col gap-10 px-5 py-7 pb-10 lg:px-10 xl:flex-row xl:gap-2 xl:px-5 2xl:gap-10 2xl:px-40">
+      <div className="flex flex-col gap-10 px-4 py-7 pb-10 lg:px-10 xl:flex-row xl:gap-2 xl:px-5 2xl:gap-10 2xl:px-40">
         <div className="flex flex-col gap-5">
           <div className="flex w-full flex-col items-center justify-center">
             <div className="hidden w-full items-center justify-center uppercase md:flex">
@@ -251,7 +251,7 @@ export default function Page() {
             <div className="flex border-2 border-darkgray p-1">
               <input
                 type="text"
-                className="px-2 outline-none"
+                className="w-full px-2 outline-none"
                 placeholder="Enter your code"
               />
               <button className="leading-wider flex items-center justify-center gap-1 rounded-full border-2 border-darkblue px-3 py-1">

@@ -113,14 +113,17 @@ export default function Page() {
           </div>
           <div className="flex w-full max-w-md flex-col items-start gap-5 text-gray-250 lg:max-w-[430px] ">
             <label className="flex items-start justify-start">
-              <input type="checkbox" className="mr-4 h-5 w-6" />
+              <input type="checkbox" className="mr-4 h-5 w-6 cursor-pointer" />
               <Typography varient="body1">
                 Receive offers from our partners
               </Typography>
             </label>
             <div className="flex flex-col gap-2">
               <label className="flex items-center">
-                <input type="checkbox" className="mr-4 h-5 w-6 " />
+                <input
+                  type="checkbox"
+                  className="mr-4 h-5 w-6 cursor-pointer"
+                />
                 <Typography varient="body1">
                   Sign up for our newsletter
                 </Typography>
